@@ -65,7 +65,7 @@ const Read = (props) => {
     });
 
   return (
-    <div className="w-full md:w-[40%] p-5 flex flex-col items-center  gap-4 overflow-scroll">
+    <div className="w-full md:w-[40%] p-5 flex flex-col items-center  gap-4">
       <h1 className="text-5xl mb-10">
         {" "}
         <span className="text-amber-300">Remaining</span> Tasks

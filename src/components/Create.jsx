@@ -22,7 +22,7 @@ const Create = (props) => {
     setdesc("");
   };
   return (
-    <div className="w-full md:w-[60%] p-5 flex flex-col  gap-7">
+    <div className="w-full md:w-[60%] p-5 flex flex-col  gap-7 sticky">
       <h1 className="text-5xl tracking-wide">
         Set <span className="text-amber-300">Reminder</span> to do.
       </h1>
