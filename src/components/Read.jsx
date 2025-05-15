@@ -1,9 +1,12 @@
+import { toast } from "react-toastify";
+
 const Read = (props) => {
   const todos = props.todos;
   const settodos = props.settodos;
 
   const deltetodo = (id) => {
     const updatedtodo = todos.filter((todo) => todo.id != id);
+    toast.error("Task Deleted!");
     settodos(updatedtodo);
   };
 
@@ -35,11 +38,7 @@ const Read = (props) => {
               {todo.title}
             </h3>
             <p className="text-gray-400 text-sm">
-              {todo.desc == "" ? (
-                <h5 className="italic text-gray-400 text-sm">No Description</h5>
-              ) : (
-                todo.desc
-              )}
+              {todo.desc == "" ? "No Description" : todo.desc}
             </p>
           </div>
 
