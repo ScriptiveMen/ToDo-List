@@ -1,0 +1,86 @@
+const Read = (props) => {
+  const todos = props.todos;
+  const settodos = props.settodos;
+
+  const deltetodo = (id) => {
+    const updatedtodo = todos.filter((todo) => todo.id != id);
+    settodos(updatedtodo);
+  };
+
+  const complteHandler = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      }
+      return todo;
+    });
+
+    settodos(updatedTodos);
+  };
+
+  const rendertodos = [...todos]
+    .sort((a, b) => a.isCompleted - b.isCompleted)
+    .map((todo) => {
+      return (
+        <li
+          className="border flex items-center justify-between p-2 rounded-sm"
+          key={todo.id}
+        >
+          <div className="flex h-full flex-col justify-between">
+            <h3
+              className={`text-xl ${
+                todo.isCompleted ? "line-through text-gray-300" : ""
+              }`}
+            >
+              {todo.title}
+            </h3>
+            <p className="text-gray-400 text-sm">
+              {todo.desc == "" ? (
+                <h5 className="italic text-gray-400 text-sm">No Description</h5>
+              ) : (
+                todo.desc
+              )}
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center justify-between gap-3">
+            <button
+              onClick={() => complteHandler(todo.id)}
+              className={`text-green-500 cursor-pointer text-sm border rounded  px-2 py-1 ${
+                todo.isCompleted ? "opacity-30" : ""
+              }`}
+            >
+              Completed
+            </button>
+
+            <button
+              onClick={() => deltetodo(todo.id)}
+              className="text-red-500 cursor-pointer text-sm  px-2 py-1 border rounded"
+            >
+              Delete Task
+            </button>
+          </div>
+        </li>
+      );
+    });
+
+  return (
+    <div className="w-full md:w-[40%] p-5 flex flex-col items-center  gap-4 overflow-scroll">
+      <h1 className="text-5xl mb-10">
+        {" "}
+        <span className="text-amber-300">Remaining</span> Tasks
+      </h1>
+      <ol className="flex flex-col w-full gap-3">
+        {rendertodos.length > 0 ? (
+          rendertodos
+        ) : (
+          <li className="text-center mt-20 text-gray-400 italic">
+            No Task pending...
+          </li>
+        )}
+      </ol>
+    </div>
+  );
+};
+
+export default Read;
