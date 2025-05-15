@@ -26,18 +26,18 @@ const Read = (props) => {
     .map((todo) => {
       return (
         <li
-          className=" flex items-center justify-between p-4 border border-gray-400 rounded-sm"
+          className=" flex items-center justify-between md:p-4 p-3 border border-gray-400 rounded-sm"
           key={todo.id}
         >
-          <div className="flex h-full flex-col justify-between">
+          <div className="flex h-full flex-col justify-between w-2/3">
             <h3
-              className={`text-3xl ${
-                todo.isCompleted ? "line-through text-gray-400" : ""
+              className={`md:text-3xl text-2xl${
+                todo.isCompleted ? " text-gray-400 line-through" : ""
               }`}
             >
               {todo.title}
             </h3>
-            <p className="text-gray-400 text-xl">
+            <p className="text-gray-400 md:text-xl  text-lg">
               {todo.desc == "" ? "No Description" : todo.desc}
             </p>
           </div>
@@ -45,7 +45,7 @@ const Read = (props) => {
           <div className="flex flex-col items-center justify-between gap-3">
             <button
               onClick={() => complteHandler(todo.id)}
-              className={`text-green-500 active:scale-95  cursor-pointer text-xl border rounded  px-2 py-1 ${
+              className={`text-green-500 active:scale-95  cursor-pointer md:text-xl text-lg border rounded  px-2 py-1 ${
                 todo.isCompleted ? "opacity-30" : ""
               }`}
             >
@@ -54,7 +54,7 @@ const Read = (props) => {
 
             <button
               onClick={() => deltetodo(todo.id)}
-              className="text-red-500 active:scale-95  cursor-pointer text-xl  px-2 py-1 border rounded"
+              className="text-red-500 active:scale-95  cursor-pointer md:text-xl text-lg  px-2 py-1 border rounded"
             >
               Delete Task
             </button>
@@ -65,7 +65,7 @@ const Read = (props) => {
 
   return (
     <div className="w-full md:w-[40%] p-5 flex flex-col items-center  gap-4">
-      <h1 className="text-7xl mb-10 ">
+      <h1 className="md:text-7xl text-5xl mb-10 ">
         {" "}
         <span className="text-amber-300 ">Remaining</span> Tasks
       </h1>
@@ -73,7 +73,7 @@ const Read = (props) => {
         {rendertodos.length > 0 ? (
           rendertodos
         ) : (
-          <li className="text-center mt-5 text-gray-400 italic text-xl">
+          <li className="text-center mt-5 text-gray-400 italic md:text-xl text-lg">
             No Task pending...
           </li>
         )}

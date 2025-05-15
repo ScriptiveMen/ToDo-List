@@ -25,7 +25,7 @@ const Create = (props) => {
 
   return (
     <div className="w-full md:w-[60%] p-5 flex flex-col  gap-7">
-      <h1 className="text-7xl">
+      <h1 className="md:text-7xl text-5xl">
         Set <span className="text-amber-300">Reminder</span> to do.
       </h1>
       <form
@@ -34,7 +34,7 @@ const Create = (props) => {
       >
         <input
           {...register("title", { required: "Title must not be empty!" })}
-          className="border-b outline-0 text-2xl"
+          className="border-b outline-0 md:text-2xl text-xl"
           type="text"
           placeholder="Title"
         />
@@ -44,12 +44,12 @@ const Create = (props) => {
 
         <input
           {...register("desc")}
-          className="border-b outline-0 mb-5 text-2xl"
+          className="border-b outline-0 mb-5 md:text-2xl text-xl"
           type="text"
           placeholder="Description"
         />
 
-        <button className="bg-yellow-300  text-black font-semibold border-amber-500 border mx-auto px-6 py-3 mt-3 text-2xl rounded-lg active:scale-95">
+        <button className="bg-yellow-300  text-black font-semibold border-amber-500 border mx-auto md:px-6 px-4 md:py-3 py-2 mt-3 md:text-2xl text-xl rounded-lg active:scale-95">
           Create Task
         </button>
       </form>
