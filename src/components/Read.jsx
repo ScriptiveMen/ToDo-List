@@ -29,7 +29,7 @@ const Read = (props) => {
           className=" flex items-center justify-between md:p-4 p-3 border border-gray-400 rounded-sm"
           key={todo.id}
         >
-          <div className="flex h-full flex-col justify-between w-2/3">
+          <div className="flex h-full flex-col justify-between">
             <h3
               className={`md:text-3xl text-2xl${
                 todo.isCompleted ? " text-gray-400 line-through" : ""
